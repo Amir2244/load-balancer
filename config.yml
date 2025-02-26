@@ -1,0 +1,20 @@
+health_check_interval: "5s"
+
+listeners:
+  - listen_addr: ":8000"
+    mode: "http"
+    algorithm: "round_robin"
+  - listen_addr: ":9000"
+    mode: "tcp"
+    algorithm: "least_connections"
+
+servers:
+  - host: "localhost:8081"
+    max_connections: 100
+    mode: "http"
+  - host: "localhost:8082"
+    max_connections: 100
+    mode: "http"
+  - host: "localhost:8083"
+    max_connections: 100
+    mode: "http"
